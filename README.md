@@ -14,38 +14,43 @@ A simple and flexible password generator written in Go.
 
 ## Usage
 
-To use the password generator in your Go code:
+To use the password generator, run the program with the following command-line arguments:
+
+```
+go run main.go <length> <useDigits> <useSpecial> <useLower> <useUpper>
+```
+
+### Arguments:
+
+1. `length`: An integer specifying the length of the password
+2. `useDigits`: `true` or `false` to include digits
+3. `useSpecial`: `true` or `false` to include special characters
+4. `useLower`: `true` or `false` to include lowercase letters
+5. `useUpper`: `true` or `false` to include uppercase letters
+
+### Example:
+
+```
+go run main.go 20 true false false true
+```
+
+This command will generate a 20-character password using only digits and uppercase letters.
+
+### Note:
+
+- All arguments are required.
+- Boolean arguments must be specified as `true` or `false`.
+- At least one character set (digits, special, lowercase, or uppercase) must be set to `true`.
+
+## Example in Go Code
+
+If you want to use the password generator in your Go code:
 
 ```go
 import "your-module-name/passwordgenerator"
 
 // Generate a password of length 20 with all character sets
 password := passwordgenerator.Generate(20, true, true, true, true)
-```
-
-The `Generate` function takes the following parameters:
-
-1. `length`: Length of the password
-2. `isDigit`: Include digits
-3. `isSpecial`: Include special characters
-4. `isLowercase`: Include lowercase letters
-5. `isUppercase`: Include uppercase letters
-
-## Example
-
-```go
-package main
-
-import (
-    "fmt"
-    "your-module-name/passwordgenerator"
-)
-
-func main() {
-    // Generate a 16-character password with digits and letters (no special characters)
-    password := passwordgenerator.Generate(16, true, false, true, true)
-    fmt.Println("Generated Password:", password)
-}
 ```
 
 ## Note
